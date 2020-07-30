@@ -16,7 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     //escena->addItem(_obstaculo);
 
     connect(timer,&QTimer::timeout,this,&MainWindow::generarobstaculos);
-    timer->start(3000);
+    timer->start(4500);
+    connect(timer2,&QTimer::timeout,this,&MainWindow::generarbolitas1);
+    timer2->start(2000);
 }
 
 MainWindow::~MainWindow()
@@ -43,5 +45,13 @@ void MainWindow::generarobstaculos()
     obst.push_back(_obstaculo);
     obst.last()->setPos(posx,posy);
     escena->addItem(obst.last());
+}
+
+void MainWindow::generarbolitas1()
+{
+    bolita_1 *bala= new bolita_1;
+    QList<QGraphicsItem*>bolas;
+    bolas.push_back(bala);
+    escena->addItem(bolas.last());
 }
 

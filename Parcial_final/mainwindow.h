@@ -24,15 +24,16 @@ public:
     ~MainWindow();
     QGraphicsScene *escena;
     QTimer *timer= new QTimer;
+    QTimer *timer2= new QTimer;
 
     bolita_1 *bolita1=new bolita_1;
-    //bolita_2 *bolita2= new bolita_2;
     obstaculo *_obstaculo=new obstaculo;
 
     void keyPressEvent(QKeyEvent *evento);
 
 private slots:
   void generarobstaculos();
+  void generarbolitas1();
 
 private:
     Ui::MainWindow *ui;

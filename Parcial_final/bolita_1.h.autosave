@@ -22,6 +22,7 @@ public:
 
     QTimer *timer;
     QTimer *timer2;
+    QTimer *timer3;
     double angulos[3]={40,90,210};
     int pos = rand() % 3;
     int posy= rand() % 600;
@@ -36,6 +37,7 @@ signals:
 public slots:
     void movimiento();
     void colisionobstaculo();
+    void colisionbordes();
 
 };
 

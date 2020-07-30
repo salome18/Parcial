@@ -7,10 +7,13 @@ bolita_1::bolita_1(QObject *parent) : QObject(parent)
 
    timer=new QTimer;
    timer2=new QTimer;
+   timer3= new QTimer;
    connect(timer,&QTimer::timeout,this,&bolita_1::movimiento);
    timer->start(30);
    connect(timer2,&QTimer::timeout,this,&bolita_1::colisionobstaculo);
    timer2->start(30);
+   connect(timer3,&QTimer::timeout,this,&bolita_1::colisionbordes);
+   timer3->start(30);
 }
 
 QRectF bolita_1::boundingRect() const
@@ -45,4 +48,9 @@ void bolita_1::colisionobstaculo()
            angulo=angulos[pos];
           }
     }
+}
+
+void bolita_1::colisionbordes()
+{
+    
 }

@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QTimer>
+#include "obstaculo.h"
 
 class bolita_2 : public QObject, public QGraphicsItem
 {
@@ -16,7 +17,10 @@ public:
     QTimer *timer;
     QTimer *timer2;
     QTimer *timer3;
-    float ancho,alto;
+    QTimer *timer4;
+    QTimer *timer5;
+    float ancho=30,alto=30;
+    int ejecucionesrebote=0;
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -25,6 +29,9 @@ signals:
 public slots:
     void movimiento();
     void desaparecer();
+    void colisionobstaculo();
+    void disminuirtam();
+    void rebote();
 
 };
 

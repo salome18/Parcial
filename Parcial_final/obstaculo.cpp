@@ -2,7 +2,7 @@
 
 obstaculo::obstaculo(QObject *parent) : QObject(parent)
 {
-    ancho=100;
+    ancho=120;
     alto=25;
 }
 
