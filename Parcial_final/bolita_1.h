@@ -8,6 +8,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <math.h>
+#include <QDebug>
 
 #include "obstaculo.h"
 
@@ -22,10 +23,11 @@ public:
 
     QTimer *timer;
     QTimer *timer2;
-    double angulos[3]={40,90,210};
+    QTimer *timer3;
+    float angulos[3]={40,90,210};
     int pos = rand() % 3;
     int posy= rand() % 600;
-    double v=64,vx,vy,x=50,y=-posy,a=9.8,yd,angulo=angulos[pos];
+    float v=64,vx,vy,x=50,y=-posy,a=9.8,yd,angulo=angulos[pos];
 
     float ancho,alto;
     QRectF boundingRect() const;
@@ -36,6 +38,7 @@ signals:
 public slots:
     void movimiento();
     void colisionobstaculo();
+    void colisionbordes();
 
 };
 

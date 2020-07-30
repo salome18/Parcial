@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     escena->setBackgroundBrush(Qt::black);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    //bolita2->setPos(100,100);
-    //escena->addItem(_obstaculo);
 
     connect(timer,&QTimer::timeout,this,&MainWindow::generarobstaculos);
     timer->start(4500);
@@ -40,7 +38,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 void MainWindow::generarobstaculos()
 {
     int posx = rand() % 600;
-    int posy=rand()% 600;
+    int posy=rand()% 580;
     QList<QGraphicsItem*>obst;
     obst.push_back(_obstaculo);
     obst.last()->setPos(posx,posy);

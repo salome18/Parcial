@@ -5,12 +5,16 @@ bolita_1::bolita_1(QObject *parent) : QObject(parent)
    ancho=30;
    alto=30;
 
+   setPos(100,posy);
    timer=new QTimer;
    timer2=new QTimer;
+   timer3= new QTimer;
    connect(timer,&QTimer::timeout,this,&bolita_1::movimiento);
    timer->start(30);
    connect(timer2,&QTimer::timeout,this,&bolita_1::colisionobstaculo);
    timer2->start(30);
+   connect(timer3,&QTimer::timeout,this,&bolita_1::colisionbordes);
+   timer3->start(30);
 }
 
 QRectF bolita_1::boundingRect() const
@@ -41,8 +45,23 @@ void bolita_1::colisionobstaculo()
     QList<QGraphicsItem *>col=collidingItems();
     for (int i=0,n=col.size();i<n;i++){
            if(typeid (*col[i])==typeid(obstaculo)){
-           v=64;
+           v=-v;
            angulo=angulos[pos];
           }
+    }
+}
+
+void bolita_1::colisionbordes()
+{
+    if((x>670)||(x<10)){
+        v=-v;
+        angulo=angulos[pos];
+    }
+    if(y<-555){
+        delete  this;
+    }
+    if(y>-10){
+        v=-v;
+        angulo=angulos[pos];
     }
 }
