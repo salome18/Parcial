@@ -13,6 +13,7 @@ public:
     explicit obstaculo(QObject *parent = nullptr);
 
     float ancho,alto;
+
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 

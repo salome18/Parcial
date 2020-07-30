@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
+#include <QTimer>
 
 class bolita_2 : public QObject, public QGraphicsItem
 {
@@ -12,12 +13,18 @@ class bolita_2 : public QObject, public QGraphicsItem
 public:
     explicit bolita_2(QObject *parent = nullptr);
 
-
+    QTimer *timer;
+    QTimer *timer2;
+    QTimer *timer3;
     float ancho,alto;
+
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 signals:
+public slots:
+    void movimiento();
+    void desaparecer();
 
 };
 

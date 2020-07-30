@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QTimer>
+#include <QKeyEvent>
+#include <QDebug>
 
 #include "bolita_1.h"
 #include "bolita_2.h"
@@ -20,10 +23,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QGraphicsScene *escena;
+    QTimer *timer= new QTimer;
 
     bolita_1 *bolita1=new bolita_1;
-    bolita_2 *bolita2= new bolita_2;
+    //bolita_2 *bolita2= new bolita_2;
     obstaculo *_obstaculo=new obstaculo;
+
+    void keyPressEvent(QKeyEvent *evento);
+
+private slots:
+  void generarobstaculos();
 
 private:
     Ui::MainWindow *ui;

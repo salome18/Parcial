@@ -16,3 +16,4 @@ void obstaculo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     painter->setBrush(Qt::blue);
     painter->drawRect(boundingRect());
 }
+
